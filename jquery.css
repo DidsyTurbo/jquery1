@@ -1,0 +1,20 @@
+body {
+	line-height: 0;
+	font-family: arial;
+}
+
+.container {
+	text-align: center;
+	padding-top: 10px;
+}
+
+.wrapper {
+	width: 800px;
+	margin: auto;
+}
+
+.square {
+	display: inline-block;
+	background-color: #E8E8E8;
+	border: 0;
+}

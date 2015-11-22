@@ -1,0 +1,134 @@
+							WORKS
+-------------------------------------------------------------------
+
+						~~~~~~~~~~~~~~~~~~~~~~
+
+var $row = $("<div />").addClass("row");
+var $square = $("<div />").addClass("square");
+
+for (var i = 0; i < columns; i++) {
+        $row.append($square.clone());
+    }
+
+	for (var i = 0; i < rows; i++) {
+        $("#wrapper").append($row.clone());
+    }
+
+
+var width = ($('#wrapper').width())/ numSquares;
+$('.square').css({'width': width, 'height': width});
+
+						or
+
+
+$('.square').css({
+	'width': width, 
+	'height': width
+	});
+};
+
+				~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//if statements to give functionality to buttons
+//for "trail" button we dont want a permanent change so we use
+//a hover function for a temporary change of background-color
+//then if else statements for the rest of the changes
+if (choice === "trail") {
+	$('.square').hover(function() {
+		$(this).css("opacity", 0);
+	}, function(){
+		$(this).fadeTo('fast', 1);
+ 	});
+} else {
+	$('.square').mouseenter(function() {
+		
+		if (choice === 'color') {
+			$(this).css('background-color', randomColor());
+		} else if(choice === 'grad') {
+			$(this).css("opacity", $(this).css('opacity') * 0.75);
+		} else {
+			$(this).css('background-color', 'black');
+		}
+	});
+};
+
+						~~~~~~~~~~~~~~~~~~~~
+
+//Random color function,  found answer online.
+//1st var describes letters used in hex values
+//2nd var puts # in front of the 6 letters or numbers 
+//that come from the function to give you the random color
+//for each background once entered by the mouse.
+$('.color').click(function() {
+
+	function randomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+	}
+
+	$('.square').mouseover(function(){
+		$(this).css('background-color', randomColor())
+	});
+});
+
+                        ~~~~~~~~~~~~~~~~~~~
+
+if (numSquares > 0 && numSquares <= 128) {
+		makeGrid(numSquares);
+	} else {
+		alert("Sorry, please pick a number within the recommended range");
+	};
+
+							~~~~~~~~~~~~~~~
+$('.trail').click(function() {
+ 	$('.square').unbind();
+ 	
+	$('#wrapper').css("background-color", "black");
+	$('.square').hover(function() {
+		$(this).css('opacity', 0);
+	}, function(){
+		$(this).fadeTo('fast', 1);
+ 	});
+});
+
+			~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+$(".wrapper").append("<div class='square' />");
+
+$('.square').css("width", squareSize + "px");
+$('.square').css("height", squareSize + "px");
+------------------------------------------------------------------
+
+
+
+return "rgb(' + red + ', ' + green + ', ' + blue + ')";
+
+function makeGrid(numSquares) {
+	var numSquares = x;
+	var squareSize = (900/x)
+
+	for (var i = 0; i < x * x; i++){
+		$('#wrapper').prepend("<div class='square' />");
+	}
+
+	$(".square").width(squareSize);
+	$(".square").height(squareSize);
+
+}
+
+function boxSize(width) {
+	var totalWidth = $(".wrapper").width();
+	return Math.floor(100 * totalWidth/ width) / 100 - 2;
+}
+
+var gridSize = boxSize(numSquares);
+
+$('.square').css({
+	'width': gridSize + "px", 
+	'height': gridSize + "px"
+	});
+
