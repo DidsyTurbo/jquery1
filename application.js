@@ -4,7 +4,10 @@ $(document).ready(function(){
 });
 
 $('.clear').click(function() {
-	clean();
+	$('.square').css({
+		"background-color": '#E8E8E8',
+		'opacity': "1"
+	})
 });
 
 //in each click function I called the function to make a 
